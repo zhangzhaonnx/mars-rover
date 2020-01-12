@@ -23,4 +23,8 @@ public class MarsRover {
   public String getDirection() {
     return direction;
   }
+
+  public void move() {
+    y += 1;
+  }
 }

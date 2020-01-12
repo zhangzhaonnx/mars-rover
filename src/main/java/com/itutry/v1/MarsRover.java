@@ -25,16 +25,17 @@ public class MarsRover {
   }
 
   public void move() {
-    if (direction.equals("N")) {
+    Direction d = Direction.valueOf(direction);
+    if (d == Direction.N) {
       y += 1;
     }
-    if (direction.equals("E")) {
+    if (d == Direction.E) {
       x += 1;
     }
-    if (direction.equals("S")) {
+    if (d == Direction.S) {
       y -= 1;
     }
-    if (direction.equals("W")) {
+    if (d == Direction.W) {
       x -= 1;
     }
   }

@@ -42,15 +42,7 @@ public class MarsRover {
 
   public void turnLeft() {
     Direction d = Direction.valueOf(direction);
-    if (d == Direction.N) {
-      direction = Direction.W.name();
-    } else if (d == Direction.W) {
-      direction = Direction.S.name();
-    } else if (d == Direction.S) {
-      direction = Direction.E.name();
-    } else if (d == Direction.E) {
-      direction = Direction.N.name();
-    }
+    direction = d.turnLeft().name();
   }
 
   public void turnRight() {

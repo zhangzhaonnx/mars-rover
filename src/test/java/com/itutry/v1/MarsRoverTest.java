@@ -117,7 +117,7 @@ public class MarsRoverTest {
   }
 
   @Test
-  public void turnLeft_should_S_for_direction_E() {
+  public void turnRight_should_S_for_direction_E() {
     MarsRover rover = new MarsRover();
     rover.init(0, 0, "E");
     rover.turnRight();
@@ -128,7 +128,7 @@ public class MarsRoverTest {
   }
 
   @Test
-  public void turnLeft_should_W_for_direction_S() {
+  public void turnRight_should_W_for_direction_S() {
     MarsRover rover = new MarsRover();
     rover.init(0, 0, "S");
     rover.turnRight();
@@ -139,7 +139,7 @@ public class MarsRoverTest {
   }
 
   @Test
-  public void turnLeft_should_N_for_direction_W() {
+  public void turnRight_should_N_for_direction_W() {
     MarsRover rover = new MarsRover();
     rover.init(0, 0, "W");
     rover.turnRight();

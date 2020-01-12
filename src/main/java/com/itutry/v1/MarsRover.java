@@ -5,21 +5,17 @@ public class MarsRover {
   private Point position;
   private Direction direction;
 
-  public void init(int x, int y, String direction) {
-    this.position = new Point(x, y);
-    this.direction = Direction.valueOf(direction);
+  public void init(Point position, Direction direction) {
+    this.position = position;
+    this.direction = direction;
   }
 
-  public int getX() {
-    return position.getX();
+  public Point getPosition() {
+    return this.position;
   }
 
-  public int getY() {
-    return position.getY();
-  }
-
-  public String getDirection() {
-    return direction.name();
+  public Direction getDirection() {
+    return direction;
   }
 
   public void move() {

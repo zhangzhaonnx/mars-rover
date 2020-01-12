@@ -41,26 +41,28 @@ public class MarsRover {
   }
 
   public void turnLeft() {
-    if (direction.equals("N")) {
-      direction = "W";
-    } else if (direction.equals("W")) {
-      direction = "S";
-    } else if (direction.equals("S")) {
-      direction = "E";
-    } else if (direction.equals("E")) {
-      direction = "N";
+    Direction d = Direction.valueOf(direction);
+    if (d == Direction.N) {
+      direction = Direction.W.name();
+    } else if (d == Direction.W) {
+      direction = Direction.S.name();
+    } else if (d == Direction.S) {
+      direction = Direction.E.name();
+    } else if (d == Direction.E) {
+      direction = Direction.N.name();
     }
   }
 
   public void turnRight() {
-    if (direction.equals("N")) {
-      direction = "E";
-    } else if (direction.equals("E")) {
-      direction = "S";
-    } else if (direction.equals("S")) {
-      direction = "W";
-    } else if (direction.equals("W")) {
-      direction = "N";
+    Direction d = Direction.valueOf(direction);
+    if (d == Direction.N) {
+      direction = Direction.E.name();
+    } else if (d == Direction.E) {
+      direction = Direction.S.name();
+    } else if (d == Direction.S) {
+      direction = Direction.W.name();
+    } else if (d == Direction.W) {
+      direction = Direction.N.name();
     }
   }
 }

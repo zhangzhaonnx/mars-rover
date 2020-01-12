@@ -3,50 +3,72 @@ package com.itutry.v1;
 public enum Direction {
   N {
     @Override
-    Direction turnLeft() {
+    public Direction turnLeft() {
       return W;
     }
 
     @Override
-    Direction turnRight() {
+    public Direction turnRight() {
       return E;
+    }
+
+    @Override
+    public void move(Point p) {
+      p.moveN();
     }
   },
   E {
     @Override
-    Direction turnLeft() {
+    public Direction turnLeft() {
       return N;
     }
 
     @Override
-    Direction turnRight() {
-      return S;
-    }
-  },
-  W {
-    @Override
-    Direction turnLeft() {
+    public Direction turnRight() {
       return S;
     }
 
     @Override
-    Direction turnRight() {
-      return N;
+    public void move(Point p) {
+      p.moveE();
     }
   },
   S {
     @Override
-    Direction turnLeft() {
+    public Direction turnLeft() {
       return E;
     }
 
     @Override
-    Direction turnRight() {
+    public Direction turnRight() {
       return W;
+    }
+
+    @Override
+    public void move(Point p) {
+      p.moveS();
+    }
+  },
+  W {
+    @Override
+    public Direction turnLeft() {
+      return S;
+    }
+
+    @Override
+    public Direction turnRight() {
+      return N;
+    }
+
+    @Override
+    public void move(Point p) {
+      p.moveW();
     }
   };
 
-  abstract Direction turnLeft();
+  public abstract Direction turnLeft();
 
-  abstract Direction turnRight();
+  public abstract Direction turnRight();
+
+  public abstract void move(Point p);
 }

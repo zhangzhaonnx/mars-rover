@@ -2,51 +2,35 @@ package com.itutry.v1;
 
 public class MarsRover {
 
-  private int x;
-  private int y;
-  private String direction;
+  private Point position;
+  private Direction direction;
 
   public void init(int x, int y, String direction) {
-    this.x = x;
-    this.y = y;
-    this.direction = direction;
+    this.position = new Point(x, y);
+    this.direction = Direction.valueOf(direction);
   }
 
   public int getX() {
-    return x;
+    return position.getX();
   }
 
   public int getY() {
-    return y;
+    return position.getY();
   }
 
   public String getDirection() {
-    return direction;
+    return direction.name();
   }
 
   public void move() {
-    Direction d = Direction.valueOf(direction);
-    if (d == Direction.N) {
-      y += 1;
-    }
-    if (d == Direction.E) {
-      x += 1;
-    }
-    if (d == Direction.S) {
-      y -= 1;
-    }
-    if (d == Direction.W) {
-      x -= 1;
-    }
+    direction.move(position);
   }
 
   public void turnLeft() {
-    Direction d = Direction.valueOf(direction);
-    direction = d.turnLeft().name();
+    direction = direction.turnLeft();
   }
 
   public void turnRight() {
-    Direction d = Direction.valueOf(direction);
-    direction = d.turnRight().name();
+    direction = direction.turnRight();
   }
 }

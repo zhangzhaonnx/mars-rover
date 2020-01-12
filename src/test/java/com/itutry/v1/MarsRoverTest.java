@@ -27,4 +27,37 @@ public class MarsRoverTest {
     Assert.assertThat(rover.getY(), is(1));
     Assert.assertThat(rover.getDirection(), is("N"));
   }
+
+  @Test
+  public void move_should_increase_x_for_direction_E() {
+    MarsRover rover = new MarsRover();
+    rover.init(0, 0, "E");
+    rover.move();
+
+    Assert.assertThat(rover.getX(), is(1));
+    Assert.assertThat(rover.getY(), is(0));
+    Assert.assertThat(rover.getDirection(), is("E"));
+  }
+
+  @Test
+  public void move_should_decrease_y_for_direction_S() {
+    MarsRover rover = new MarsRover();
+    rover.init(0, 0, "S");
+    rover.move();
+
+    Assert.assertThat(rover.getX(), is(0));
+    Assert.assertThat(rover.getY(), is(-1));
+    Assert.assertThat(rover.getDirection(), is("S"));
+  }
+
+  @Test
+  public void move_should_decrease_x_for_direction_W() {
+    MarsRover rover = new MarsRover();
+    rover.init(0, 0, "W");
+    rover.move();
+
+    Assert.assertThat(rover.getX(), is(-1));
+    Assert.assertThat(rover.getY(), is(0));
+    Assert.assertThat(rover.getDirection(), is("W"));
+  }
 }

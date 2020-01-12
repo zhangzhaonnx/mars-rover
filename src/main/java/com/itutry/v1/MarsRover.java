@@ -25,6 +25,17 @@ public class MarsRover {
   }
 
   public void move() {
-    y += 1;
+    if (direction.equals("N")) {
+      y += 1;
+    }
+    if (direction.equals("E")) {
+      x += 1;
+    }
+    if (direction.equals("S")) {
+      y -= 1;
+    }
+    if (direction.equals("W")) {
+      x -= 1;
+    }
   }
 }

@@ -20,4 +20,12 @@ public enum Direction {
   public int getCode() {
     return this.code;
   }
+
+  public Direction rightDirection() {
+    return Direction.valueOf((this.getCode() + 1) % 4);
+  }
+
+  public Direction leftDirection() {
+    return Direction.valueOf((this.getCode() + 3) % 4);
+  }
 }

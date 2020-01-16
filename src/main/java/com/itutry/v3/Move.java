@@ -23,6 +23,9 @@ public class Move implements Command {
 
   @Override
   public RoverState action(RoverState state) {
+    if (state.getBacking()) {
+      return MAPPING.get(state.getFacing().oppositeOne()).apply(state);
+    }
     return MAPPING.get(state.getFacing()).apply(state);
   }
 }

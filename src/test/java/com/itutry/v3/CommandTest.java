@@ -65,7 +65,11 @@ public class CommandTest {
         Arguments.of(RoverState.of(0, 0, EAST), RoverState.of(1, 0, EAST)),
         Arguments.of(RoverState.of(0, 0, SOUTH), RoverState.of(0, -1, SOUTH)),
         Arguments.of(RoverState.of(0, 0, WEST), RoverState.of(-1, 0, WEST)),
-        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 1, NORTH))
+        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 1, NORTH)),
+        Arguments.of(RoverState.of(0, 0, EAST, true), RoverState.of(-1, 0, EAST, true)),
+        Arguments.of(RoverState.of(0, 0, SOUTH, true), RoverState.of(0, 1, SOUTH, true)),
+        Arguments.of(RoverState.of(0, 0, WEST, true), RoverState.of(1, 0, WEST), true),
+        Arguments.of(RoverState.of(0, 0, NORTH, true), RoverState.of(0, -1, NORTH), true)
     );
   }
 
@@ -74,7 +78,11 @@ public class CommandTest {
         Arguments.of(RoverState.of(0, 0, EAST), RoverState.of(0, 0, NORTH)),
         Arguments.of(RoverState.of(0, 0, SOUTH), RoverState.of(0, 0, EAST)),
         Arguments.of(RoverState.of(0, 0, WEST), RoverState.of(0, 0, SOUTH)),
-        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 0, WEST))
+        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 0, WEST)),
+        Arguments.of(RoverState.of(0, 0, EAST, true), RoverState.of(0, 0, SOUTH, true)),
+        Arguments.of(RoverState.of(0, 0, SOUTH, true), RoverState.of(0, 0, WEST, true)),
+        Arguments.of(RoverState.of(0, 0, WEST, true), RoverState.of(0, 0, NORTH, true)),
+        Arguments.of(RoverState.of(0, 0, NORTH, true), RoverState.of(0, 0, EAST, true))
     );
   }
 
@@ -83,7 +91,11 @@ public class CommandTest {
         Arguments.of(RoverState.of(0, 0, EAST), RoverState.of(0, 0, SOUTH)),
         Arguments.of(RoverState.of(0, 0, SOUTH), RoverState.of(0, 0, WEST)),
         Arguments.of(RoverState.of(0, 0, WEST), RoverState.of(0, 0, NORTH)),
-        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 0, EAST))
+        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 0, EAST)),
+        Arguments.of(RoverState.of(0, 0, EAST, true), RoverState.of(0, 0, NORTH, true)),
+        Arguments.of(RoverState.of(0, 0, SOUTH, true), RoverState.of(0, 0, EAST, true)),
+        Arguments.of(RoverState.of(0, 0, WEST, true), RoverState.of(0, 0, SOUTH, true)),
+        Arguments.of(RoverState.of(0, 0, NORTH, true), RoverState.of(0, 0, WEST, true))
     );
   }
 }

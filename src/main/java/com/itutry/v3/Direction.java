@@ -10,4 +10,8 @@ public enum Direction {
   public Direction rightOne() {
     return Direction.values()[(ordinal() + 1) % 4];
   }
+
+  public Direction oppositeOne() {
+    return Direction.values()[(ordinal() + 2) % 4];
+  }
 }

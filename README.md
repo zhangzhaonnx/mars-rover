@@ -27,12 +27,14 @@ Command
 + action(RoverState): RoverState
 1. Move, 
 2. TurnRight, 
-3. TurnLeft
+3. TurnLeft,
+4.
 
 RoverState(Immutable)
 - x: int
 - y: int
 - facing: Direction
+- mode: RoverMode
 
 Direction
 - EAST: Direction
@@ -41,6 +43,11 @@ Direction
 - NORTH: Direction
 + leftOne: Direction
 + rightOne: Direction
+
+RoverMode:
+- FORWARD: RoverMode
+- BACKWARD: RoverMode
++ 
 
 MarsRover
 + execute(Command): void

@@ -26,12 +26,33 @@ public class CommandTest {
     Assert.assertThat(state.getFacing(), is(output.getFacing()));
   }
 
+  @ParameterizedTest
+  @MethodSource("turnLeftArguments")
+  public void turnLeft_should_success(RoverState input, RoverState output) {
+    Command command = new TurnLeft();
+
+    RoverState state = command.action(input);
+
+    Assert.assertThat(state.getX(), is(output.getX()));
+    Assert.assertThat(state.getY(), is(output.getY()));
+    Assert.assertThat(state.getFacing(), is(output.getFacing()));
+  }
+
   static Stream<Arguments> moveArguments() {
     return Stream.of(
         Arguments.of(RoverState.of(0, 0, EAST), RoverState.of(1, 0, EAST)),
         Arguments.of(RoverState.of(0, 0, SOUTH), RoverState.of(0, -1, SOUTH)),
         Arguments.of(RoverState.of(0, 0, WEST), RoverState.of(-1, 0, WEST)),
         Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 1, NORTH))
+    );
+  }
+
+  static Stream<Arguments> turnLeftArguments() {
+    return Stream.of(
+        Arguments.of(RoverState.of(0, 0, EAST), RoverState.of(0, 0, NORTH)),
+        Arguments.of(RoverState.of(0, 0, SOUTH), RoverState.of(0, 0, EAST)),
+        Arguments.of(RoverState.of(0, 0, WEST), RoverState.of(0, 0, SOUTH)),
+        Arguments.of(RoverState.of(0, 0, NORTH), RoverState.of(0, 0, WEST))
     );
   }
 }

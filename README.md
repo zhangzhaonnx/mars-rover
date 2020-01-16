@@ -21,3 +21,34 @@
 - init:(0, 0, S), turn right, report(0, 0, W)
 - init:(0, 0, E), turn right, report(0, 0, S)
 - init:(0, 0, W), turn right, report(0, 0, N)
+
+## Tasking v2
+Command
++ action(RoverState): RoverState
+1. Move, 
+2. TurnRight, 
+3. TurnLeft
+
+RoverState(Immutable)
+- x: int
+- y: int
+- facing: Direction
+
+Direction
+- EAST: Direction
+- SOUTH: Direction
+- WEST: Direction
+- NORTH: Direction
++ leftOne: Direction
++ rightOne: Direction
+
+MarsRover
++ execute(Command): void
++ getState(): RoverState
+
+CommandParser
++ parse(String) : List<Command>
+
+ControlCenter
++ initRover()
++ executeCommand(String): RoverState

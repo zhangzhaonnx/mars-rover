@@ -6,4 +6,8 @@ public enum Direction {
   public Direction leftOne() {
     return Direction.values()[(ordinal() + 3) % 4];
   }
+
+  public Direction rightOne() {
+    return Direction.values()[(ordinal() + 1) % 4];
+  }
 }

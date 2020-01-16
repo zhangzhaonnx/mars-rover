@@ -17,4 +17,24 @@ public class ControlCenterTest {
     Assert.assertThat(result.getY(), is(3));
     Assert.assertThat(result.getFacing(), is(NORTH));
   }
+
+  @Test
+  void executeCommand_should_success_for_empty_commend() {
+    ControlCenter center = new ControlCenter();
+    center.initRover(RoverState.of(0, 0, NORTH));
+    RoverState result = center.executeCommand("");
+    Assert.assertThat(result.getX(), is(0));
+    Assert.assertThat(result.getY(), is(0));
+    Assert.assertThat(result.getFacing(), is(NORTH));
+  }
+
+  @Test
+  void executeCommand_should_success_for_invalid_commend() {
+    ControlCenter center = new ControlCenter();
+    center.initRover(RoverState.of(0, 0, NORTH));
+    RoverState result = center.executeCommand("T");
+    Assert.assertThat(result.getX(), is(0));
+    Assert.assertThat(result.getY(), is(0));
+    Assert.assertThat(result.getFacing(), is(NORTH));
+  }
 }

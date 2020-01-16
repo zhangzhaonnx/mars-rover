@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.stream.Stream;
 import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -48,6 +49,15 @@ public class CommandTest {
     Assert.assertThat(state.getX(), is(output.getX()));
     Assert.assertThat(state.getY(), is(output.getY()));
     Assert.assertThat(state.getFacing(), is(output.getFacing()));
+  }
+
+  @Test
+  public void back_should_success() {
+    Command command = new Back();
+
+    RoverState state = command.action(RoverState.of(0, 0, EAST));
+
+    Assert.assertThat(state.getBacking(), is(true));
   }
 
   static Stream<Arguments> moveArguments() {

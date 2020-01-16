@@ -16,6 +16,7 @@ public class CommandParser {
     COMMAND_MAPPING.put("M", Move::new);
     COMMAND_MAPPING.put("L", TurnLeft::new);
     COMMAND_MAPPING.put("R", TurnRight::new);
+    COMMAND_MAPPING.put("B", Back::new);
   }
 
   public List<Command> parse(String commandStr) {

@@ -12,9 +12,14 @@ public class RoverState {
   private final int x;
   private final int y;
   private final Direction facing;
+  private final Boolean backing;
 
   public static RoverState of(int x, int y, Direction facing) {
-    return new RoverState(x, y, facing);
+    return new RoverState(x, y, facing, false);
+  }
+
+  public static RoverState of(int x, int y, Direction facing, Boolean backing) {
+    return new RoverState(x, y, facing, backing);
   }
 
   public RoverState adjustX(int delta) {
@@ -23,5 +28,9 @@ public class RoverState {
 
   public RoverState adjustY(int delta) {
     return RoverState.of(x, y + delta, facing);
+  }
+
+  public Boolean getBacking() {
+    return backing;
   }
 }

@@ -5,25 +5,24 @@ import static com.itutry.v3.Direction.NORTH;
 import static com.itutry.v3.Direction.SOUTH;
 import static com.itutry.v3.Direction.WEST;
 
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.function.Function;
+
 public class Move implements Command {
+
+  private static final Map<Direction, Function<RoverState, RoverState>> MAPPING =
+      new EnumMap<>(Direction.class);
+
+  static {
+    MAPPING.put(EAST, state -> state.adjustX(1));
+    MAPPING.put(SOUTH, state -> state.adjustY(-1));
+    MAPPING.put(WEST, state -> state.adjustX(-1));
+    MAPPING.put(NORTH, state -> state.adjustY(1));
+  }
 
   @Override
   public RoverState action(RoverState state) {
-    int x = state.getX();
-    int y = state.getY();
-    if (state.getFacing() == EAST) {
-      x += 1;
-    }
-    if (state.getFacing() == SOUTH) {
-      y -= 1;
-    }
-    if (state.getFacing() == WEST) {
-      x -= 1;
-    }
-    if (state.getFacing() == NORTH) {
-      y += 1;
-    }
-
-    return RoverState.of(x, y, state.getFacing());
+    return MAPPING.get(state.getFacing()).apply(state);
   }
 }

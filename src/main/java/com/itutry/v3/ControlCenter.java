@@ -11,12 +11,12 @@ public class ControlCenter {
     this.commandParser = new CommandParser();
   }
 
-  public void intiRover(RoverState state) {
+  public void initRover(RoverState state) {
     this.rover = new MarsRover(state);
   }
 
-  public RoverState executeCommand(String instruction) {
-    List<Command> commands = commandParser.parse(instruction);
+  public RoverState executeCommand(String commandStr) {
+    List<Command> commands = commandParser.parse(commandStr);
     commands.forEach(cmd -> rover.execute(cmd));
     return rover.getState();
   }

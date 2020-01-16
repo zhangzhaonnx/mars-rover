@@ -16,6 +16,14 @@ public class RoverState {
     return new RoverState(x, y, facing);
   }
 
+  public RoverState adjustX(int delta) {
+    return RoverState.of(x + delta, y, facing);
+  }
+
+  public RoverState adjustY(int delta) {
+    return RoverState.of(x, y + delta, facing);
+  }
+
   public int getX() {
     return x;
   }

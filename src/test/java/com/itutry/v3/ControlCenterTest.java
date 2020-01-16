@@ -11,7 +11,7 @@ public class ControlCenterTest {
   @Test
   void executeCommand_should_success() {
     ControlCenter center = new ControlCenter();
-    center.intiRover(RoverState.of(0, 0, NORTH));
+    center.initRover(RoverState.of(0, 0, NORTH));
     RoverState result = center.executeCommand("M,M,L,M,R,M");
     Assert.assertThat(result.getX(), is(-1));
     Assert.assertThat(result.getY(), is(3));

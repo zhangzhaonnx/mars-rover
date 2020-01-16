@@ -12,9 +12,9 @@ public class ControlCenterTest {
   void executeCommand_should_success() {
     ControlCenter center = new ControlCenter();
     center.initRover(RoverState.of(0, 0, NORTH));
-    RoverState result = center.executeCommand("M,M,L,M,R,M,B");
-    Assert.assertThat(result.getX(), is(-1));
-    Assert.assertThat(result.getY(), is(3));
+    RoverState result = center.executeCommand("M,M,L,M,R,M,B,M,M,L,M,R,M");
+    Assert.assertThat(result.getX(), is(-2));
+    Assert.assertThat(result.getY(), is(0));
     Assert.assertThat(result.getFacing(), is(NORTH));
     Assert.assertThat(result.getBacking(), is(true));
   }

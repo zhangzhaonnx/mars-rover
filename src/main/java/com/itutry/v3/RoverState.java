@@ -23,11 +23,11 @@ public class RoverState {
   }
 
   public RoverState adjustX(int delta) {
-    return RoverState.of(x + delta, y, facing);
+    return RoverState.of(x + delta, y, facing, backing);
   }
 
   public RoverState adjustY(int delta) {
-    return RoverState.of(x, y + delta, facing);
+    return RoverState.of(x, y + delta, facing, backing);
   }
 
   public Boolean getBacking() {
